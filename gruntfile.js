@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
   const sass = require('node-sass');
+  const normalize = require("sassy-normalize").includePaths;
   require('jit-grunt')(grunt, {
     postcss: '@lodder/grunt-postcss'
   });
@@ -17,7 +18,8 @@ module.exports = function (grunt) {
     },
     sass: {
       options: {
-        implementation: sass
+        implementation: sass,
+        includePaths: [normalize]
       },
       dev: {
         files: {
@@ -40,18 +42,6 @@ module.exports = function (grunt) {
           browser: 'firefox'
         }
       }
-    },
-    svgstore: {
-      options: {
-        inheritviewbox: true,
-        includeTitleElement: false,
-        cleanup: ['fill', 'fill-rule']
-      },
-      default: {
-        files: {
-          'source/img/sprite.svg': ['source/img/inline/*.svg'],
-        },
-      },
     },
     browserify: {
       default: {
@@ -91,33 +81,9 @@ module.exports = function (grunt) {
       dist: {
         src: 'build/css/*.css'
       }
-    },
-    svgmin: {
-      link: {
-        files: [
-          {
-            expand: true,
-            cwd: 'build/img',
-            src: ['*.svg', '!sprite.svg'],
-            dest: 'build/img'
-          }
-        ]
-      },
-      inline: {
-        files: {
-          'build/img/sprite.svg': 'build/img/sprite.svg'
-        },
-        options: {
-          plugins: [
-            {
-              cleanupIDs: false
-            }
-          ]
-        }
-      }
     }
   });
 
   grunt.registerTask('server', ['sass', 'browserify', 'browserSync', 'watch']);
-  grunt.registerTask('build', ['sass', 'browserify', 'clean', 'copy', 'postcss', 'svgmin']);
+  grunt.registerTask('build', ['sass', 'browserify', 'clean', 'copy', 'postcss']);
 };
