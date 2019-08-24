@@ -1,7 +1,7 @@
 const headerDay = $('.header__day')
 const headerDate = $('.header__date')
 
-const date = new Date()
+const dateNow = new Date()
 
 function setDate () {
   const regex = /(\w+),(.+)/
@@ -12,7 +12,7 @@ function setDate () {
     day: '2-digit'
   }
 
-  const dateString = date.toLocaleDateString('en-US', options)
+  const dateString = dateNow.toLocaleDateString('en-US', options)
   dateString.replace(regex, ($1, $2, $3) => {
     headerDay.text($2)
     headerDate.text($3)
@@ -20,3 +20,12 @@ function setDate () {
 }
 
 setDate()
+
+const tomorrow = new Date(dateNow)
+tomorrow.setDate(tomorrow.getDate() + 1)
+tomorrow.setHours(0, 0, 0, 0)
+
+const msToTomorrow = tomorrow.getTime() - dateNow.getTime()
+setTimeout(() => {
+  setDate()
+}, msToTomorrow)
