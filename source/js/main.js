@@ -1,1 +1,4 @@
-const $ = require('jquery')
+// const $ = require('jquery')
+$(() => {
+  require('./modules/header-date')
+})

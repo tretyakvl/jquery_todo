@@ -31,10 +31,8 @@
   },
   "standard": {
     "env": "browser",
-    "ignore": [
-      "package.json",
-      "gruntfile.js"
-    ]
+    "globals": ["$"],
+    "ignore": ["gruntfile.js"]
   },
   "browserslist": [
     "defaults"
