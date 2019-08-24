@@ -8,5 +8,53 @@
   <title>jQuery todo</title>
 </head>
 <body>
+  <main class="app ">
+    <h1 class="visually-hidd">Todo app</h1>
+    <header class="app__header header">
+      <h2 class="visually-hidden">Today's date</h2>
+      <time class="header__time" datetime="2019-09-19">
+        <span class="header__day">Monday</span>
+        <span class="hader__date">August 19, 2019</span>
+      </time>
+    </header>
+    <section class="app__tasks tasks">
+      <h2 class="visually-hidden">Your tasks</h2>
+      <label for="new-task" class="visually-hidden">Add new task</label>
+      <div class="tasks__add add">
+        <button class="add__select" type="button">
+          <span class="visually-hidden">Complete all tasks</span>
+        </button>
+        <label>
+          <span class="visually-hidden">What's on your plate?</span>
+          <input class="add__input" type="text" placeholder="What's on your plate?">
+        </label>
+      </div>
+      <ul class="tasks__list">
+        <li class="tasks__task task">
+          <label class="task__checkbox">
+            <span class="visually-hidden">Complete task</span>
+            <input class="visually-hidden" type="checkbox">
+          </label>
+          <label class="task__text">
+            <span class="visually-hidden">Task description</span>
+            <input type="text" value="" disabled>
+          </label>
+        </li>
+      </ul>
+    </section>
+    <footer class="app__footer footer">
+      <span class="footer__count">
+        <span></span>
+        items left
+      </span>
+      <fieldset class="footer__filters filters">
+        <legend class="visually-hidden">Filter tasks</legend>
+        <input class="visually-hidden" type="radio" name="filter" id="all">
+        <label class="filters__button" for="all">All</label>
+        <input class="visually-hidden" type="radio" name="filter" id="completed">
+        <label class="filters__button" for="completed">Completed</label>
+      </fieldset>
+    </footer>
+  </main>
 </body>
 </html>
