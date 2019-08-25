@@ -1,9 +1,11 @@
+const headerTime = $('.header__time')
 const headerDay = $('.header__day')
 const headerDate = $('.header__date')
 
-const dateNow = new Date()
+let dateNow
 
 function setDate () {
+  dateNow = new Date()
   const regex = /(\w+),(.+)/
   const options = {
     year: 'numeric',
@@ -13,6 +15,7 @@ function setDate () {
   }
 
   const dateString = dateNow.toLocaleDateString('en-US', options)
+  headerTime.attr('datetime', dateNow.toISOString())
   dateString.replace(regex, ($1, $2, $3) => {
     headerDay.text($2)
     headerDate.text($3)
