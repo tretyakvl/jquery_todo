@@ -9,6 +9,12 @@ body {
   background-color: var(--bg-medium);
 }
 
+@media(min-width: 30em) {
+  body {
+    font-size: 1.25rem;
+  }
+}
+
 *,
 ::before,
 ::after {

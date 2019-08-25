@@ -15,11 +15,13 @@
   background-color: transparent;
   border: none;
 
+  cursor: pointer;
+
   svg {
     width: 0.9375em;
     height: auto;
 
-    fill: var(--font-dark);
+    fill: var(--bg-medium);
   }
 }
 
