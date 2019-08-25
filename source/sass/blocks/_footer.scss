@@ -1,0 +1,24 @@
+.footer {
+  display: flex;
+  align-items: center;
+
+  padding: 0.875em 2em;
+
+  background-color: var(--bg-light);
+}
+
+.footer__count {
+  margin-right: 1em;
+
+  color: var(--font-medium);
+  font-size: 0.75em;
+
+  span {
+    display: inline-block;
+    min-width: 1ch;
+  }
+}
+
+.footer__filters {
+  flex: 1 0 auto;
+}
