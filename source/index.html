@@ -38,12 +38,30 @@
       <ul class="tasks__list">
         <li class="tasks__task task">
           <label class="task__checkbox">
+            <svg width="15" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 12">
+              <path
+                d="M5 11L.3 6a.8.8 0 0 1 0-1l1-1c.4-.3.8-.3 1.1 0l3.3 3.3 7-7c.4-.4.8-.4 1.1 0l1 1c.4.3.4.7 0 1L6.3 11c-.3.3-.8.3-1.1 0z" />
+            </svg>
             <span class="visually-hidden">Complete task</span>
             <input class="visually-hidden" type="checkbox">
           </label>
           <label class="task__text">
             <span class="visually-hidden">Task description</span>
-            <input type="text" value="" disabled>
+            <input type="text" value="Do something" disabled>
+          </label>
+        </li>
+        <li class="tasks__task task task--completed">
+          <label class="task__checkbox">
+            <svg width="15" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 12">
+              <path
+                d="M5 11L.3 6a.8.8 0 0 1 0-1l1-1c.4-.3.8-.3 1.1 0l3.3 3.3 7-7c.4-.4.8-.4 1.1 0l1 1c.4.3.4.7 0 1L6.3 11c-.3.3-.8.3-1.1 0z" />
+            </svg>
+            <span class="visually-hidden">Complete task</span>
+            <input class="visually-hidden" type="checkbox">
+          </label>
+          <label class="task__text">
+            <span class="visually-hidden">Task description</span>
+            <input type="text" value="Do something" disabled>
           </label>
         </li>
       </ul>

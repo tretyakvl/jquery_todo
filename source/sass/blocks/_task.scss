@@ -1,0 +1,60 @@
+.task {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 1em;
+  padding: 0 1em;
+
+  background-color: var(--bg-light);
+  border-radius: 2em;
+}
+
+.task__checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1.5625em;
+  height: 1.5625em;
+  margin-right: 0.625em;
+
+  background-color: var(--bg-medium);
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  svg {
+    fill: var(--bg-medium);
+  }
+}
+
+.task__text {
+  flex: 1 0 auto;
+
+  input {
+    width: 100%;
+
+    color: var(--font-dark);
+    font-size: 1.25em;
+    line-height: 2.5;
+
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.task--completed {
+  background-color: transparent;
+
+  .task__checkbox {
+    cursor: default;
+
+    svg {
+      fill: var(--font-light);
+    }
+  }
+
+  input {
+    color: var(--font-light);
+  }
+}
