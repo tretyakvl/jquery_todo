@@ -1,4 +1,6 @@
+'use strict'
 // const $ = require('jquery')
 $(() => {
-  require('./modules/header-date')
+  require('./modules/_header-date')
+  require('./modules/_add')
 })
