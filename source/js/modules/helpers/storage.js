@@ -9,6 +9,6 @@ module.exports = {
    * @returns {Array} Returns tasks array
    */
   getTasks () {
-    return JSON.parse(localStorage.getItem('tasks'))
+    return JSON.parse(localStorage.getItem('tasks')) || []
   }
 }
