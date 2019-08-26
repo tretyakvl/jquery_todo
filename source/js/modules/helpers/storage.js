@@ -1,8 +1,10 @@
 module.exports = {
   /**
-   * @param {Array} tasks
+   * @param {Array} task
    */
-  store (tasks) {
+  store (task) {
+    const tasks = this.getTasks() || []
+    tasks.push(task)
     localStorage.setItem('tasks', JSON.stringify(tasks))
   },
   /**
