@@ -1,17 +1,18 @@
 module.exports = {
   /**
    *
-   * @param {CallableFunction} action Array.map(([value, isCompleted, id]) => {action}) callback
+   * @param {CallableFunction} action Array.map callback
    */
   update (action) {
     const tasks = this.getTasks()
     localStorage.setItem('tasks', JSON.stringify(tasks.map(action)))
   },
   /**
-   * @param {Array} task
+   * @param {Object} task { value, completed, id }
    */
   store (task) {
     const tasks = this.getTasks() || []
+
     tasks.push(task)
     localStorage.setItem('tasks', JSON.stringify(tasks))
   },

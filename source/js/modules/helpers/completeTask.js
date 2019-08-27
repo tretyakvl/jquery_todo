@@ -6,17 +6,14 @@ const COMPLETED = 'task--completed'
  */
 module.exports = function ($task) {
   const $completedList = $('.tasks__list--completed')
+
   $task.addClass(COMPLETED)
   $completedList.prepend($task)
-  function cb (task) {
-    // task = [value, isCompleted, id]
-
-    if (task[2] === $task.data('id')) {
-      task[1] = true
+  storage.update(task => {
+    if (task.id === $task.data('id')) {
+      task.completed = true
     }
 
     return task
-  }
-
-  storage.update(cb)
+  })
 }
