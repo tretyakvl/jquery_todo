@@ -1,3 +1,4 @@
+const COMPLETED = 'task--completed'
 /**
  *
  * @param {Array} task
@@ -11,10 +12,9 @@ module.exports = function (task) {
 
   $taskClone.find('input[type=text]').attr('value', string)
   $taskClone.data('id', id)
-  console.log(id)
 
   if (isCompleted) {
-    $taskClone.addClass('.task--completed')
+    $taskClone.addClass(COMPLETED)
     $completedTasksList.append($taskClone)
   } else {
     $tasksList.append($taskClone)
