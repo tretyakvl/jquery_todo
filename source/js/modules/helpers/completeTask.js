@@ -9,6 +9,7 @@ module.exports = function ($task) {
 
   $task.addClass(COMPLETED)
   $completedList.prepend($task)
+  $task.off()
   storage.update(task => {
     if (task.id === $task.data('id')) {
       task.completed = true

@@ -15,6 +15,7 @@ module.exports = function (task) {
   if (task.completed) {
     $taskClone.addClass(COMPLETED)
     $completedTasksList.append($taskClone)
+    $taskClone.off()
   } else {
     $tasksList.append($taskClone)
   }
