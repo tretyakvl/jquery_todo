@@ -3,7 +3,6 @@ module.exports = {
    * @param {String} id
    */
   delete (id) {
-    console.log(id)
     localStorage.setItem('tasks', JSON.stringify(this.getTasks().filter(task => task.id !== id)))
   },
   /**
