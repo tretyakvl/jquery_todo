@@ -43,6 +43,26 @@
 
     background-color: transparent;
     border: none;
+
+    cursor: default;
+    user-select: none;
+  }
+}
+
+.task__delete {
+  display: none;
+  width: 1.5625em;
+  height: 1.5625em;
+  margin-left: 0.625em;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  svg {
+    fill: var(--bg-medium);
   }
 }
 
@@ -59,5 +79,19 @@
 
   input {
     color: var(--font-light);
+  }
+}
+
+.task--edit {
+
+  .task__text {
+    input {
+      cursor: text;
+      user-select: text;
+    }
+  }
+
+  .task__delete {
+    display: block;
   }
 }
