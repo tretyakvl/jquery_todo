@@ -51,6 +51,9 @@
 
 .task__delete {
   display: none;
+  align-items: center;
+  justify-content: center;
+
   width: 1.5625em;
   height: 1.5625em;
   margin-left: 0.625em;
@@ -62,6 +65,8 @@
   cursor: pointer;
 
   svg {
+    width: 70%;
+    height: auto;
     fill: var(--bg-medium);
   }
 }
@@ -92,6 +97,6 @@
   }
 
   .task__delete {
-    display: block;
+    display: flex;
   }
 }
