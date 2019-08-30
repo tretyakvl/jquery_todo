@@ -1,8 +1,8 @@
-.fade-in {
-  animation: 300ms fade-in ease-out forwards;
+.fade-in-left {
+  animation: 300ms fade-in-left ease-out forwards;
 }
 
-@keyframes fade-in {
+@keyframes fade-in-left {
   0% {
     opacity: 0;
     transform: translate(-10%, -10%)
@@ -11,5 +11,37 @@
   100% {
     opacity: 1;
     transform: translate(0, 0)
+  }
+}
+
+.fade-in-right {
+  animation: 300ms fade-in-right ease-in forwards;
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(30%)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+.fade-out-right {
+  animation: 200ms fade-out-right ease-out forwards;
+}
+
+@keyframes fade-out-right {
+  0% {
+    opacity: 1;
+    transform: translateX(0)
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(20%)
   }
 }
