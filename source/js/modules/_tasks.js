@@ -16,14 +16,15 @@ function observerCallback () {
 
 observer.observe(tasksList, observerOptions)
 
-let delay = 0
-const DURATION = 100
+const tasksToRender = storage.getTasks().sort(task => !task.completed)
+const ANIMATION_DURATION = 100
+let delay = ANIMATION_DURATION * tasksToRender.length
 
-storage.getTasks().sort(task => task.completed).forEach(task => {
+tasksToRender.forEach(task => {
   addTask(task).css({
-    'animation-duration': `${DURATION}ms`,
+    'animation-duration': `${ANIMATION_DURATION}ms`,
     'animation-delay': `${delay}ms`
   })
 
-  delay += DURATION
+  delay -= ANIMATION_DURATION
 })

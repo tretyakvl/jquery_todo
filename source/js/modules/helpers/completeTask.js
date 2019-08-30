@@ -7,9 +7,9 @@ const COMPLETED = 'task--completed'
 module.exports = function ($task) {
   const $completedList = $('.tasks__list--completed')
 
-  $task.addClass(COMPLETED)
+  $task.addClass(COMPLETED).off().removeAttr('style')
   $completedList.prepend($task)
-  $task.off()
+
   storage.update(task => {
     if (task.id === $task.data('id')) {
       task.completed = true

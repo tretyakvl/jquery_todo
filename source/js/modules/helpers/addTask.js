@@ -16,10 +16,10 @@ module.exports = function (task) {
 
   if (task.completed) {
     $taskClone.addClass(COMPLETED)
-    $completedTasksList.append($taskClone)
+    $completedTasksList.prepend($taskClone)
     $taskClone.off()
   } else {
-    $tasksList.append($taskClone)
+    $tasksList.prepend($taskClone)
   }
 
   return $taskClone
