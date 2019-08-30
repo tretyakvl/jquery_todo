@@ -17,6 +17,13 @@ $task.dblclick(event => {
   if (event.target.matches('[type="text"]')) {
     const $parent = $(event.delegateTarget)
     const $input = $(event.target)
+    const moveCaret = () => {
+      const input = $input.get(0)
+      const range = input.value.length
+      input.focus()
+      input.setSelectionRange(range, range)
+    }
+    moveCaret()
 
     $parent.addClass(EDIT_CLASS)
 
