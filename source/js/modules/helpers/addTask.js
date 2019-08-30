@@ -2,6 +2,8 @@ const COMPLETED = 'task--completed'
 /**
  *
  * @param {Object} task { value, completed, id }
+ *
+ * @returns {JQuery} Returs jQuery task object
  */
 module.exports = function (task) {
   const $taskTemplate = $($('template').prop('content')).find('.task')
@@ -19,4 +21,6 @@ module.exports = function (task) {
   } else {
     $tasksList.append($taskClone)
   }
+
+  return $taskClone
 }

@@ -35,9 +35,10 @@
           <input class="add__input" type="text" placeholder="What's on your plate?">
         </label>
       </div>
-      <ul class="tasks__list"></ul>
-      <ul class="tasks__list tasks__list--completed">
-      </ul>
+      <div class="tasks__wrapper">
+        <ul class="tasks__list"></ul>
+        <ul class="tasks__list tasks__list--completed"></ul>
+      </div>
     </section>
     <footer class="app__footer footer">
       <span class="footer__count">
@@ -54,7 +55,7 @@
     </footer>
   </main>
   <template>
-    <li class="tasks__task task">
+    <li class="tasks__task task fade-in">
       <label class="task__checkbox">
         <svg width="15" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 12">
           <path
