@@ -1,5 +1,6 @@
 const storage = require('./helpers/storage')
 const addTask = require('./helpers/addTask')
+const completeTask = require('./helpers/completeTask')
 const generateId = require('./helpers/generateID')
 
 const $addInput = $('.add__input')
@@ -17,4 +18,8 @@ $addInput.keydown((event) => {
     storage.store(task)
     $addInput.val('')
   }
+})
+
+$('.add__select').click(() => {
+  $('.task:not(.task--completed)').each((i, task) => completeTask($(task)))
 })
