@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+  <script src="js/output.js"></script>
+  <title>jQuery todo</title>
+</head>
+<body>
+  <main class="app ">
+    <h1 class="visually-hidden">Todo app</h1>
+    <header class="app__header header">
+      <h2 class="visually-hidden">Today's date</h2>
+      <time class="header__time" datetime="">
+        <span class="header__day"></span>
+        <span class="header__date"></span>
+      </time>
+    </header>
+    <section class="app__tasks tasks">
+      <h2 class="visually-hidden">Your tasks</h2>
+      <div class="tasks__add add">
+        <button class="add__select" type="button">
+          <svg width="15" height="9" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 9">
+            <path d="M1.3 0h12.4c1.2 0 1.7 1.4 1 2.1L8.3 8.4c-.5.5-1.3.5-1.8 0L.4 2C-.4 1.4 0 0 1.3 0z" />
+          </svg>
+          <span class="visually-hidden">Complete all tasks</span>
+        </button>
+        <label>
+          <span class="visually-hidden">What's on your plate?</span>
+          <input class="add__input" type="text" placeholder="What's on your plate?">
+        </label>
+      </div>
+      <div class="tasks__wrapper">
+        <ul class="tasks__list"></ul>
+        <ul class="tasks__list tasks__list--completed"></ul>
+      </div>
+    </section>
+    <footer class="app__footer footer">
+      <small class="footer__info">Double tap to edit task</small>
+      <span class="footer__count">
+        0 items left
+      </span>
+      <fieldset class="footer__filters filters">
+        <legend class="visually-hidden">Filter tasks</legend>
+        <input class="visually-hidden" type="radio" name="filter" id="all" checked>
+        <label class="filters__button" for="all">All</label>
+        <input class="visually-hidden" type="radio" name="filter" id="completed">
+        <label class="filters__button" for="completed">Completed</label>
+        <button class="filters__clear" type="button">Clear completed</button>
+      </fieldset>
+    </footer>
+  </main>
+  <template>
+    <li class="tasks__task task fade-in-left">
+      <label class="task__checkbox">
+        <svg width="15" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 12">
+          <path
+            d="M5 11L.3 6a.8.8 0 0 1 0-1l1-1c.4-.3.8-.3 1.1 0l3.3 3.3 7-7c.4-.4.8-.4 1.1 0l1 1c.4.3.4.7 0 1L6.3 11c-.3.3-.8.3-1.1 0z" />
+        </svg>
+        <span class="visually-hidden">Complete task</span>
+        <input class="visually-hidden" type="checkbox">
+      </label>
+      <label class="task__text">
+        <span class="visually-hidden">Task description</span>
+        <input type="text" value="" readonly>
+      </label>
+      <button class="task__delete fade-in-right" type="button">
+        <svg width="15" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 18">
+          <g clip-path="url(#clip0)">
+            <path
+              d="M14.5 1h-4L10 .5a.8.8 0 0 0-.7-.4H5.6a.8.8 0 0 0-.7.4l-.3.7h-4a.5.5 0 0 0-.6.5v1a.5.5 0 0 0 .5.6h14a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.6zM1.8 15.7a1.6 1.6 0 0 0 1.6 1.5h8.2a1.6 1.6 0 0 0 1.6-1.5L14 4.3H1.1l.7 11.3z" />
+          </g>
+          <defs>
+            <clipPath id="clip0">
+              <path fill="#fff" d="M0 0h15v17.1H0z" />
+            </clipPath>
+          </defs>
+        </svg>
+        <span class="visually-hidden">Delete task</span>
+      </button>
+    </li>
+  </template>
+</body>
+</html>
