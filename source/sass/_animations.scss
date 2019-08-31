@@ -61,3 +61,17 @@
     transform: translate(-10%, -10%)
   }
 }
+
+.fade-out {
+  animation: 200ms fade-out linear forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

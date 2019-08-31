@@ -1,6 +1,23 @@
 const storage = require('./helpers/storage')
 const FADE_OUT_CLASS = 'fade-out-left'
 const ANIMATION_DURATION = 250
+const $taskList = $('.tasks__list')
+const observer = new MutationObserver(observerCallback)
+function observerCallback () {
+  if ($taskList.get(0).childElementCount > 1 || $taskList.get(1).childElementCount > 1) {
+    const $footerInfo = $('.footer__info')
+    const ANIMATION_DURATION = 1550
+
+    $footerInfo.addClass('fade-out').css({ 'animation-duration': '500ms', 'animation-delay': '1000ms' })
+    setTimeout(() => {
+      $footerInfo.remove()
+    }, ANIMATION_DURATION)
+
+    $taskList.each((i, elem) => observer.disconnect(elem))
+  }
+}
+
+$taskList.each((i, elem) => observer.observe(elem, { childList: true }))
 
 $('.filters > input[type=radio]').change(event => {
   const $tasksList = $('.tasks__list:not(.tasks__list--completed)')
