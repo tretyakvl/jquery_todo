@@ -15,7 +15,7 @@ $task.click(event => {
 $task.dblclick(event => {
   if (event.target.matches('[type="text"]')) {
     const EDIT_CLASS = 'task--edit'
-    const ANIMATION_DURATION = 300
+    const ANIMATION_DURATION = 400
 
     const $parent = $(event.delegateTarget)
     const $input = $(event.target)

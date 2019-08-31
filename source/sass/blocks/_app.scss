@@ -4,7 +4,11 @@
 
   min-width: 360px;
   max-width: 30em;
-  max-height: 100vh;
+  height: 100vh;
 
   margin: 0 auto;
+}
+
+.app__header {
+  flex-basis: 9em;
 }

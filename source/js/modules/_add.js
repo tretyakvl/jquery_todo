@@ -7,7 +7,7 @@ const $addInput = $('.add__input')
 const ENTER_CODE = 13
 
 $addInput.keydown((event) => {
-  if (event.keyCode === ENTER_CODE) {
+  if (event.keyCode === ENTER_CODE && $addInput.val().length > 0) {
     const task = {
       value: $addInput.val(),
       completed: false,
