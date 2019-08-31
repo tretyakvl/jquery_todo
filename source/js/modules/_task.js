@@ -17,45 +17,38 @@ $task.dblclick(event => {
   if (event.target.matches('[type="text"]')) {
     const $parent = $(event.delegateTarget)
     const $input = $(event.target)
-    const moveCaret = () => {
-      const input = $input.get(0)
-      const range = input.value.length
-      input.focus()
-      input.setSelectionRange(range, range)
-    }
-    moveCaret()
 
+    $input.attr('readonly', false)
     $parent.addClass(EDIT_CLASS)
+    moveCaret($input.get(0))
 
     const keydownHandler = event => {
-      event.preventDefault()
-
       if (event.keyCode === ENTER_KEYCODE || event.keyCode === ESC_KEYCODE) {
+        event.preventDefault()
         $input.trigger('blur')
+        $input.off('keydown', keydownHandler)
       }
-
-      $input.off('keydown', keydownHandler)
     }
     $input.keydown(keydownHandler)
 
-    const deleteHandler = event => {
+    const deleteButton = $parent.find('.task__delete')
+    const deleteHandler = () => {
       const id = $parent.data('id')
 
       $parent.remove()
       storage.delete(id)
     }
-    $parent.find('.task__delete').click(deleteHandler)
+    deleteButton.click(deleteHandler)
 
-    $input.attr('readonly', false)
+    $input.blur(() => {
+      $input.attr('readonly', true)
 
-    const blurHandler = event => {
       const TIMEOUT = 200
-
       setTimeout(() => {
+        deleteButton.off('click', deleteHandler)
         $parent.removeClass(EDIT_CLASS)
       }, TIMEOUT)
 
-      $input.attr('readonly', true)
       storage.update(task => {
         if (task.id === $parent.data('id')) {
           task.value = $input.val()
@@ -63,8 +56,13 @@ $task.dblclick(event => {
 
         return task
       })
-    }
-
-    $input.blur(blurHandler)
+    })
   }
 })
+
+function moveCaret (input) {
+  const range = input.value.length
+
+  input.focus()
+  input.setSelectionRange(range, range)
+}
