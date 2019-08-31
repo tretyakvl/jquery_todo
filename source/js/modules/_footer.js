@@ -1,6 +1,6 @@
 const storage = require('./helpers/storage')
 const FADE_OUT_CLASS = 'fade-out-left'
-const ANIMATION_DURATION = 400
+const ANIMATION_DURATION = 250
 
 $('.filters > input[type=radio]').change(event => {
   const $tasksList = $('.tasks__list:not(.tasks__list--completed)')

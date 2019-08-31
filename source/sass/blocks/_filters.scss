@@ -17,8 +17,10 @@
   font-size: 0.75em;
   line-height: 2;
 
-  cursor: pointer;
   border-radius: 2em;
+
+  transition: background-color 100ms ease-out;
+  cursor: pointer;
 }
 
 .filters__clear {
@@ -29,9 +31,14 @@
   font-size: 0.75em;
   line-height: 2;
 
-  background-color: var(--bg-medium);
+  background-color: transparent;
   border: none;
   border-radius: 2em;
 
+  transition: background-color 100ms ease-out;
   cursor: pointer;
+}
+
+.filters__clear:active {
+  background-color: var(--bg-medium);
 }

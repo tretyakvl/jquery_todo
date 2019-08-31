@@ -1,5 +1,5 @@
 .fade-in-left {
-  animation: 300ms fade-in-left ease-out forwards;
+  animation: 200ms fade-in-left ease-out forwards;
 }
 
 @keyframes fade-in-left {
@@ -15,7 +15,7 @@
 }
 
 .fade-in-right {
-  animation: 300ms fade-in-right ease-in forwards;
+  animation: 200ms fade-in-right ease-out forwards;
 }
 
 @keyframes fade-in-right {
@@ -31,7 +31,7 @@
 }
 
 .fade-out-right {
-  animation: 300ms fade-out-right ease-out forwards;
+  animation: 200ms fade-out-right ease-out forwards;
 }
 
 @keyframes fade-out-right {
@@ -47,7 +47,7 @@
 }
 
 .fade-out-left {
-  animation: 300ms fade-out-left ease-in forwards;
+  animation: 200ms fade-out-left ease-out forwards;
 }
 
 @keyframes fade-out-left {
