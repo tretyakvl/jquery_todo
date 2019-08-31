@@ -1,7 +1,6 @@
 const completeTask = require('./helpers/completeTask')
 const storage = require('./helpers/storage')
 
-const EDIT_CLASS = 'task--edit'
 const ENTER_KEYCODE = 13
 const ESC_KEYCODE = 27
 const $task = $($('template').prop('content')).find('.task')
@@ -15,6 +14,9 @@ $task.click(event => {
 
 $task.dblclick(event => {
   if (event.target.matches('[type="text"]')) {
+    const EDIT_CLASS = 'task--edit'
+    const ANIMATION_DURATION = 300
+
     const $parent = $(event.delegateTarget)
     const $input = $(event.target)
 
@@ -31,23 +33,28 @@ $task.dblclick(event => {
     }
     $input.keydown(keydownHandler)
 
-    const deleteButton = $parent.find('.task__delete')
+    const $deleteButton = $parent.find('.task__delete')
     const deleteHandler = () => {
+      const FADE_OUT_CLASS = 'fade-out-left'
       const id = $parent.data('id')
 
-      $parent.remove()
+      $parent.addClass(FADE_OUT_CLASS)
+      setTimeout(() => {
+        $parent.remove()
+      }, ANIMATION_DURATION)
       storage.delete(id)
     }
-    deleteButton.click(deleteHandler)
+    $deleteButton.click(deleteHandler)
 
     $input.blur(() => {
-      $input.attr('readonly', true)
+      const FADE_OUT_CLASS = 'fade-out-right'
 
-      const TIMEOUT = 200
+      $deleteButton.addClass(FADE_OUT_CLASS)
       setTimeout(() => {
-        deleteButton.off('click', deleteHandler)
+        $deleteButton.off()
+        $deleteButton.removeClass(FADE_OUT_CLASS)
         $parent.removeClass(EDIT_CLASS)
-      }, TIMEOUT)
+      }, ANIMATION_DURATION)
 
       storage.update(task => {
         if (task.id === $parent.data('id')) {
@@ -56,6 +63,7 @@ $task.dblclick(event => {
 
         return task
       })
+      $input.attr('readonly', true)
     })
   }
 })
